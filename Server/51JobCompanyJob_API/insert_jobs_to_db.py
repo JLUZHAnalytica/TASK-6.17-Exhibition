@@ -30,7 +30,7 @@ sleep(5)
 
 # 读取岗位信息
 
-with open('jobs_list.json' , 'r' , encoding = 'utf-8') as f: 
+with open('Data/jobs_list.json' , 'r' , encoding = 'utf-8') as f: 
     print('reading json')
     job = f.read()
     job = json.loads(job)
