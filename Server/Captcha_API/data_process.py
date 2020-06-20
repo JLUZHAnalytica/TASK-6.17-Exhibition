@@ -1,5 +1,5 @@
 import json
-with open('D:\线上工作室\项目孵化\web\data\captcha_img_list.json','r',encoding='utf-8')as f:
+with open('Data/captcha_img_list.json','r',encoding='utf-8')as f:
     captcha_img_list = json.loads(f.read())
 
 newcaptcha_img_list = []
