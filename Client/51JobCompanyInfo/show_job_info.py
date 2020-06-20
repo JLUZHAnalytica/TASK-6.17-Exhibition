@@ -7,15 +7,13 @@ Created on Fri Jun 19 22:01:42 2020
 from prettytable import PrettyTable
 import json
 import requests
-import os
 
 def get_data(page, limit):
-    os.system("clear")
     data = json.loads(requests.get('http://121.199.66.40:5000/51job.html?page={}&limit={}'.format(page, limit)).text)
     x = PrettyTable()
-    x.field_names = ["id","company","Name","Experience","Degree","Need","Area","Salary","URL"]#,"公司URL"
+    x.field_names = ["id","company","Name","Experience","Degree","Need","Area","Salary"]#,"公司URL"
     for i in data["data"]:
-        x.add_row([i['id'],i['company'],i['Name'],i['Experience'],i['Degree'],i['Need'],i['Area'],'Salary',i['URL']])
+        x.add_row([i['id'],i['company'],i['Name'],i['Experience'],i['Degree'],i['Need'],i['Area'],'Salary'])
     print(x)
     print("当前页数为{}页，当前每页个数为{}个".format(page, limit))
     print()
