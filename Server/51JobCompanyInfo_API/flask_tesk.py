@@ -46,7 +46,6 @@ def page_count(table):
 def doutu_img():
     page = int(request.args.get('page','1'))
     limit = int(request.args.get('limit','20'))
-    print(page,limit)
     table = 'company_list'
     data = page_query(page=page,limit=limit,table=table)
     response_data={"code": 0, "msg": "", "count": page_count(table), "data": data}
