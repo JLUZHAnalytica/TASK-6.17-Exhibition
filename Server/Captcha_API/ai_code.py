@@ -24,23 +24,21 @@ def af_request(resp):
 ##################################################
 CORS(web,supports_credentials=True)
 client = MongoClient()
-db = client['test']
 
 def page_query(page=1,limit=20,table='img'):
-    collection = db[table]
+    collection = client['test']['test']
     return(list(collection.find().skip((page-1)*limit).limit(limit)))
 
-def page_count(table):
-    collection = db[table]
+def page_count():
+    collection = client['test']['test']
     return collection.find().count()
 
-@web.route('/img')
+@web.route('/ai_code')
 def img():
     page = int(request.args.get('page','1'))
     limit = int(request.args.get('limit','20'))
-    table = 'img'
-    data = page_query(page=page,limit=limit,table=table)
-    response_data={"code": 0, "msg": "", "count": page_count(table), "data": data}
+    data = page_query(page=page,limit=limit,)
+    response_data={"code": 0, "count": page_count(), "data": data}
     return dumps(response_data,cls=JSONEncoder)
 
 web.run()
