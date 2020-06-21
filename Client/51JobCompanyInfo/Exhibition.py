@@ -42,7 +42,7 @@ def Menu(page,com_ls,limit=20):
         print('欢迎进入天鹰万象团队工作室——51job展示页面！')
         print('1.更换每页展示的个数')
         print('2.选择公司')
-		print('3.跳转到指定页')
+        print('3.跳转到指定页')
         choose = str(input('请选择(按下回车翻页,按下-1退出)：'))
         if choose == '':
             page = page + 1
@@ -54,12 +54,12 @@ def Menu(page,com_ls,limit=20):
             click = int(input('请输入公司的序号：'))
             com_info(click,com_ls)
             com_ls_page(page,limit)
-		elif choose == '3':
+        elif choose == '3':
             page = int(input('请输入页数：'))
             com_ls_page(page,limit)
         elif choose == '-1':
             break
-		else:
+        else:
             print("错误请求，请重新选择")
 
 if __name__ == '__main__':
