@@ -7,8 +7,10 @@ Created on Fri Jun 19 22:01:42 2020
 from prettytable import PrettyTable
 import json
 import requests
+import os
 
 def get_data(page, limit):
+    os.system("clear")
     data = json.loads(requests.get('http://121.199.66.40:5000/51job.html?page={}&limit={}'.format(page, limit)).text)
     x = PrettyTable()
     x.field_names = ["id","company","Name","Experience","Degree","Need","Area","Salary"]#,"公司URL"
