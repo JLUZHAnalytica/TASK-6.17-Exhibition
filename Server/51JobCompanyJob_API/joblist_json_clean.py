@@ -11,7 +11,7 @@ import json
 company_info_list = []
 word_0=''
 word_1=''
-with open('jobs_list.json','r',encoding='utf-8')as f:
+with open('Server/Data/jobs_list.json','r',encoding='utf-8')as f:
     company_info_list = json.loads(f.read())
     
    
@@ -26,8 +26,8 @@ for company in company_info_list:
         word_1=company_info_list[company][i][1]#无经验学历要求
         if(word_1.find('人') != -1):
             company_info_list[company][i].insert(1,'')
-with open('company_info_list_1.json','w',encoding='utf-8')as f:
-    f.write(json.dumps(company_info_list))
+with open('Server/Data/company_info_list_clean.json','w',encoding='utf-8')as f:
+    f.write(json.dumps(company_info_list, ensure_ascii=False, indent=4))
    
 #test
 count=0
