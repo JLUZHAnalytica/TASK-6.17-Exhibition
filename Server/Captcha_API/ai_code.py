@@ -38,7 +38,7 @@ def img():
     page = int(request.args.get('page','1'))
     limit = int(request.args.get('limit','20'))
     data = page_query(page=page,limit=limit,)
-    response_data=(data)
+    response_data=("code":0,"msg":"","count":460271,"data":data)
     return dumps(response_data,cls=JSONEncoder)
 
 web.run()
