@@ -25,7 +25,7 @@ def af_request(resp):
 CORS(web,supports_credentials=True)
 client = MongoClient()
 
-def page_query(page=1,limit=20,table='img'):
+def page_query(page=1,limit=20,table='test'):
     collection = client['test']['test']
     return(list(collection.find().skip((page-1)*limit).limit(limit)))
 
@@ -38,7 +38,7 @@ def img():
     page = int(request.args.get('page','1'))
     limit = int(request.args.get('limit','20'))
     data = page_query(page=page,limit=limit,)
-    response_data={"code": 0, "count": page_count(), "data": data}
+    response_data=(data)
     return dumps(response_data,cls=JSONEncoder)
 
 web.run()
